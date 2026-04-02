@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supreme Duelist Image Converter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <header>
+                <h1>SDSMap Converter</h1>
+                <p>Convert images to .fun maps</p>
+            </header>
+            
+            <div class="controls">
+                <div class="control-group">
+                    <label for="image-upload" class="file-label">
+                        <span>Upload Image</span>
+                        <input type="file" id="image-upload" accept="image/*">
+                    </label>
+                </div>
+
+                <div class="control-group">
+                    <label for="width-range">Grid Width: <span id="width-val">120</span></label>
+                    <input type="range" id="width-range" min="20" max="300" value="120">
+                </div>
+
+                <div class="control-group">
+                    <label for="size-range">Physical Size: <span id="size-val">60</span></label>
+                    <input type="range" id="size-range" min="10" max="200" value="60">
+                </div>
+
+                <div class="control-group">
+                    <label for="contrast-range">Contrast: <span id="contrast-val">2.5</span></label>
+                    <input type="range" id="contrast-range" min="1" max="5" step="0.1" value="2.5">
+                </div>
+
+                <div class="control-group checkbox-group">
+                    <label>
+                        <input type="checkbox" id="invert-check"> Invert Colors
+                    </label>
+                    <label>
+                        <input type="checkbox" id="merge-check" checked> Optimize (Merge Rects)
+                    </label>
+                </div>
+
+                <button id="download-btn" class="primary-btn" disabled>Download .fun</button>
+            </div>
+
+            <footer>
+                <p>Built with ❤️ for Supreme Duelist</p>
+            </footer>
+        </aside>
+
+        <main class="preview-area">
+            <div class="canvas-container">
+                <div class="canvas-box">
+                    <h3>Source Image</h3>
+                    <div id="source-preview" class="empty-preview">Upload an image to start</div>
+                    <canvas id="source-canvas" style="display: none;"></canvas>
+                </div>
+                <div class="canvas-box">
+                    <h3>Map Preview (Dithered)</h3>
+                    <div id="result-preview" class="empty-preview">Preview will appear here</div>
+                    <canvas id="result-canvas" style="display: none;"></canvas>
+                </div>
+            </div>
+            
+            <div class="stats-bar" id="stats-bar" style="visibility: hidden;">
+                <span id="stat-pixels">Pixels: 0</span>
+                <span id="stat-blocks">Blocks: 0</span>
+                <span id="stat-ratio">Optimization: 0x</span>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="script.js"></script>
+</body>
+</html>
